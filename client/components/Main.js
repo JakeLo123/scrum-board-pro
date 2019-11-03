@@ -1,7 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Main = () => {
-	return <div>react is working</div>;
+const Main = (props) => {
+	console.log(props);
+	return <div>{props.user.name}</div>;
 };
 
-export default Main;
+const mapState = (state) => {
+	return {
+		user: state.user
+	};
+};
+
+export default connect(mapState)(Main);
