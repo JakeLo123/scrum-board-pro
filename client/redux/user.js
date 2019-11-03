@@ -1,3 +1,10 @@
+// action constants
+const GET_USER = 'GET_USER';
+
+// action creators
+
+// thunk creators
+
 const initialState = {
 	name: 'Jake',
 	favoriteHobby: 'banjo'

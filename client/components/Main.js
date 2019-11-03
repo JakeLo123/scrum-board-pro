@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const Main = (props) => {
-	console.log(props);
-	return <div>{props.user.name}</div>;
+	return <div>{props.user}</div>;
 };
 
 const mapState = (state) => {
