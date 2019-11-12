@@ -1,18 +1,16 @@
 const User = require('./user');
 const Project = require('./project');
-const Sprint = require('./sprint');
 const Task = require('./task');
+// const Sprint = require('./sprint');
 // const { Message } = require('./message');
 
 Project.belongsToMany(User, { through: 'User_Project' });
 User.hasMany(Project);
 
-Project.hasMany(Sprint);
-Sprint.belongsTo(Project);
+Project.hasMany(Task);
+Task.belongsTo(Project);
 
-Sprint.hasMany(Task);
-Task.belongsTo(Sprint);
-
+User.hasMany(Task);
 Task.belongsTo(User);
 
-module.exports = { User, Project, Sprint, Task };
+module.exports = { User, Project, Task };

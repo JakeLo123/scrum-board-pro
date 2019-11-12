@@ -1,8 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+// import UserHome from './UserHome';
 
 const Main = (props) => {
-	return <div>{props.user}</div>;
+	return (
+		<Router>
+			<Switch>
+				<Route path="/home">{/* <UserHome /> */}</Route>
+			</Switch>
+		</Router>
+	);
 };
 
 const mapState = (state) => {
