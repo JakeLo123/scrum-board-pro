@@ -7,6 +7,13 @@ const Project = db.define('project', {
 		allowNull: false,
 		unique: true
 	},
+	description: {
+		type: Sequelize.TEXT
+	},
+	status: {
+		type: Sequelize.BOOLEAN,
+		defaultValue: false
+	},
 	deadline: {
 		type: Sequelize.DATEONLY
 	}

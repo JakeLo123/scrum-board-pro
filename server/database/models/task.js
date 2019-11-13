@@ -6,6 +6,9 @@ const Task = db.define('task', {
 		type: Sequelize.STRING,
 		allowNull: false
 	},
+	description: {
+		type: Sequelize.TEXT
+	},
 	priority: {
 		type: Sequelize.ENUM('low', 'medium', 'high'),
 		defaultValue: 'low'
