@@ -14,8 +14,13 @@ const useStyles = makeStyles({
 	},
 	card: {
 		flex: 1,
-		margin: 15
+		margin: 15,
+		position: 'relative'
 	}
+	// footer: {
+	// 	position: 'absolute'
+	// 	// bottom: 10
+	// }
 });
 
 function shortenText(text) {
@@ -47,6 +52,9 @@ const UserHome = (props) => {
 									{shortenText(project.description)}
 								</Typography>
 							</CardContent>
+							{/* <div> */}
+							{/* <Typography variant="body2">{project.deadline}</Typography> */}
+							{/* </div> */}
 						</Card>
 					);
 				})}
