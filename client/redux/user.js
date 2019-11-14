@@ -79,10 +79,10 @@ const jakesProjects = [
 	}
 ];
 
-const jake = {
-	email: 'jake@scrum.com',
-	projects: jakesProjects
-};
+// const jake = {
+// 	email: 'jake@scrum.com',
+// 	projects: jakesProjects
+// };
 
 // action constants
 const GET_USER = 'GET_USER';

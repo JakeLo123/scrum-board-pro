@@ -5,7 +5,7 @@ const Task = require('./task');
 // const { Message } = require('./message');
 
 Project.belongsToMany(User, { through: 'User_Project' });
-User.hasMany(Project);
+User.belongsToMany(Project, { through: 'User_Project' });
 
 Project.hasMany(Task);
 Task.belongsTo(Project);
