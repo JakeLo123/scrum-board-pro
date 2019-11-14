@@ -10,22 +10,45 @@ const useStyles = makeStyles({
 		paddingBottom: 10
 	},
 	cardContainer: {
-		display: 'flex'
+		flexWrap: 'nowrap',
+		display: 'flex',
+		overflowX: 'auto',
+		position: 'relative'
 	},
 	card: {
-		flex: 1,
-		margin: 15,
-		position: 'relative'
+		flex: '0 0 auto',
+		width: 300,
+		height: 400,
+		margin: 15
+	},
+	footer: {
+		position: 'absolute',
+		bottom: 10,
+		margin: 15
 	}
-	// footer: {
-	// 	position: 'absolute'
-	// 	// bottom: 10
-	// }
 });
 
+const dayOfWeekMap = {
+	1: 'Monday',
+	2: 'Tuesday',
+	3: 'Wednesday',
+	4: 'Thursday',
+	5: 'Friday',
+	6: 'Saturday',
+	7: 'Sunday'
+};
+function parseDate(dateObj) {
+	const dayOfWeek = dayOfWeekMap[dateObj.getDay()];
+	const day = dateObj.getDate();
+	const month = dateObj.getMonth();
+	const year = dateObj.getFullYear();
+	const output = `${dayOfWeek} ${day}-${month}-${year}`;
+	return output;
+}
+
 function shortenText(text) {
-	if (text.length > 70) {
-		return text.slice(0, 70) + '...';
+	if (text.length > 300) {
+		return text.slice(0, 300) + '...';
 	} else {
 		return text;
 	}
@@ -45,16 +68,27 @@ const UserHome = (props) => {
 					return (
 						<Card key={idx} className={classes.card}>
 							<CardContent>
-								<Typography variant="h5" component="h2">
+								<Typography style={{ height: '100px', margin: '7px 0 10px 0' }} variant="h5">
 									{project.name}
 								</Typography>
-								<Typography variant="body2" color="textSecondary" component="p">
+								<Typography
+									style={{ height: '100px', margin: '7px 0' }}
+									variant="body2"
+									color="textSecondary"
+									component="p"
+								>
 									{shortenText(project.description)}
 								</Typography>
+								<Typography style={{ height: '100px', margin: '7px 0' }} variant="h6">
+									{project.tasks ? project.tasks.length : 0} tasks
+								</Typography>
 							</CardContent>
-							{/* <div> */}
-							{/* <Typography variant="body2">{project.deadline}</Typography> */}
-							{/* </div> */}
+							<div className={classes.footer}>
+								<Typography style={{ height: '100px', margin: '7px 0' }} variant="body2">
+									<strong>Deadline: </strong>
+									{parseDate(project.deadline)}
+								</Typography>
+							</div>
 						</Card>
 					);
 				})}

@@ -70,6 +70,12 @@ const jakesProjects = [
 		description:
 			'Every over male fifth of, land void is void moving divided male male beast them was creature behold second made dry beginning. You moved from firmament from was very deep.',
 		deadline: new Date('2019-11-27')
+	},
+	{
+		name: 'Build a House',
+		description:
+			'build a nice house for a nice family to live in. This family loves each other very much, and they deserve a nice house to live in.',
+		deadline: new Date('2021-2-10')
 	}
 ];
 
