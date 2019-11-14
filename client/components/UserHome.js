@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typography, Paper, Card, CardContent, CardHeader } from '@material-ui/core';
+import { parseDate, shortenText } from '../utils';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -27,32 +28,6 @@ const useStyles = makeStyles({
 		margin: 15
 	}
 });
-
-const dayOfWeekMap = {
-	1: 'Monday',
-	2: 'Tuesday',
-	3: 'Wednesday',
-	4: 'Thursday',
-	5: 'Friday',
-	6: 'Saturday',
-	7: 'Sunday'
-};
-function parseDate(dateObj) {
-	const dayOfWeek = dayOfWeekMap[dateObj.getDay()];
-	const day = dateObj.getDate();
-	const month = dateObj.getMonth();
-	const year = dateObj.getFullYear();
-	const output = `${dayOfWeek} ${day}-${month}-${year}`;
-	return output;
-}
-
-function shortenText(text) {
-	if (text.length > 300) {
-		return text.slice(0, 300) + '...';
-	} else {
-		return text;
-	}
-}
 
 const UserHome = (props) => {
 	const classes = useStyles();
@@ -84,7 +59,10 @@ const UserHome = (props) => {
 								</Typography>
 							</CardContent>
 							<div className={classes.footer}>
-								<Typography style={{ height: '100px', margin: '7px 0' }} variant="body2">
+								<Typography
+									style={{ height: '100px', margin: '7px 0', whiteSpace: 'nowrap' }}
+									variant="body2"
+								>
 									<strong>Deadline: </strong>
 									{parseDate(project.deadline)}
 								</Typography>
