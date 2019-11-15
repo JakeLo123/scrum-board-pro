@@ -96,10 +96,10 @@ const getUser = (user) => {
 };
 
 // thunk creators
-export const getUserThunk = (user, method) => {
+export const getUserThunk = (user) => {
 	return async (dispatch) => {
 		try {
-			const res = await axios.post(`/auth/${method}`, user);
+			const res = await axios.put(`/auth/login`, user);
 			dispatch(getUser(res.data));
 		} catch (err) {
 			console.error('auth error occurred: ', err);

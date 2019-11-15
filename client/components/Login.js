@@ -1,9 +1,11 @@
 import React from 'react';
 import { TextField, Button } from '@material-ui/core';
+import { connect } from 'react-redux';
+import { getUserThunk } from '../redux/user';
 
 class Login extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			email: '',
 			password: ''
@@ -21,6 +23,7 @@ class Login extends React.Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
+		console.log(this.props);
 		this.setState({ email: '', password: '' });
 		console.log('submitted');
 	}
@@ -56,4 +59,10 @@ class Login extends React.Component {
 	}
 }
 
-export default Login;
+const mapDispatch = (dispatch) => {
+	return {
+		login: (user) => dispatch(getUserThunk(user))
+	};
+};
+
+export default connect(null, mapDispatch)(Login);
