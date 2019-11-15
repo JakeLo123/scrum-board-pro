@@ -1,11 +1,11 @@
 import React from 'react';
-import { TextField } from '@material-ui/core';
+import { TextField, Button } from '@material-ui/core';
 
 class Login extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			password: '',
+			email: '',
 			password: ''
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,35 +21,36 @@ class Login extends React.Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
+		this.setState({ email: '', password: '' });
+		console.log('submitted');
 	}
 
 	render() {
 		return (
-			<form onSubmit={() => this.handleSubmit}>
-				<div>
-					<TextField
-						onChange={this.handleChange}
-						label="email"
-						name="email"
-						value={this.state.email}
-						margin="normal"
-						variant="outlined"
-						// id="outlined-search"
-						// type="input"
-						// className={classes.textField}
-					/>
-					<TextField
-						onChange={this.handleChange}
-						label="password"
-						name="password"
-						value={this.state.password}
-						margin="normal"
-						variant="outlined"
-						// type="input"
-						// id="outlined-search"
-						// className={classes.textField}
-					/>
-				</div>
+			<form className="login-signup-form" onSubmit={this.handleSubmit}>
+				<TextField
+					value={this.state.email}
+					onChange={this.handleChange}
+					label="Email"
+					name="email"
+					type="text"
+					margin="normal"
+					variant="filled"
+					required
+				/>
+				<TextField
+					onChange={this.handleChange}
+					value={this.state.password}
+					label="Password"
+					name="password"
+					type="password"
+					margin="normal"
+					variant="filled"
+					required
+				/>
+				<Button type="submit" variant="contained">
+					login
+				</Button>
 			</form>
 		);
 	}
