@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { Typography, Paper, Card, CardContent } from '@material-ui/core';
 import { parseDate, shortenText } from '../utils';
 import { makeStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux';
 
 const useStyles = makeStyles({
 	header: {
@@ -32,8 +33,9 @@ const useStyles = makeStyles({
 
 const UserHome = (props) => {
 	const classes = useStyles();
-	const user = props.user;
-	if (!user.email) {
+	const { user } = props;
+	if (user && !user.email) {
+		console.log('got inside the thing');
 		return <Redirect to="/" />;
 	}
 	return (
@@ -44,6 +46,7 @@ const UserHome = (props) => {
 			</Paper>
 			<div className={classes.cardContainer}>
 				{user.projects.map((project, idx) => {
+					console.log();
 					return (
 						<Card key={idx} className={classes.card}>
 							<CardContent>
@@ -68,7 +71,7 @@ const UserHome = (props) => {
 									variant="body2"
 								>
 									<strong>Deadline: </strong>
-									{parseDate(project.deadline)}
+									{project.deadline}
 								</Typography>
 							</div>
 						</Card>
@@ -79,4 +82,10 @@ const UserHome = (props) => {
 	);
 };
 
-export default UserHome;
+const mapState = (state) => {
+	return {
+		user: state.user
+	};
+};
+
+export default connect(mapState)(UserHome);

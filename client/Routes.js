@@ -6,11 +6,10 @@ import { Switch, Route } from 'react-router-dom';
 class Routes extends React.Component {
 	componentDidMount() {}
 	render() {
-		console.log('all props...', this.props);
 		return (
 			<Switch>
 				<Route path="/home" component={UserHome} />
-				<Route component={Login} />
+				<Route path="/" component={Login} />
 			</Switch>
 		);
 	}

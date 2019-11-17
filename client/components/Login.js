@@ -19,7 +19,6 @@ class Login extends React.Component {
 
 const mapDispatch = (dispatch, ownProps) => {
 	const history = ownProps.history;
-	console.log('history: ', history);
 	return {
 		login: (event) => {
 			event.preventDefault();
@@ -27,7 +26,6 @@ const mapDispatch = (dispatch, ownProps) => {
 				email: event.target.email.value,
 				password: event.target.password.value
 			};
-			console.log(user);
 			dispatch(getUserThunk(user)).then(() => history.push('/home'));
 		}
 	};

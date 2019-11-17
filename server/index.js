@@ -55,7 +55,7 @@ function createApp() {
 const port = process.env.PORT || 3030;
 
 function bootApp() {
-	db.sync({ force: true });
+	db.sync();
 	console.log('database synced!');
 	app.listen(port, () => {
 		console.log(`app is listening on port ${port}!`);

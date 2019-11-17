@@ -5,6 +5,7 @@ const { createUser, createRandomProject, bulkCreateTasks } = require('./seed-uti
 async function seed() {
 	try {
 		await db.sync({ force: true });
+		console.log('db synced!');
 
 		// create users
 		const user1 = await createUser('jake@email.com', '123');
