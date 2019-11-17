@@ -1,5 +1,6 @@
 import React from 'react';
-import { Typography, Paper, Card, CardContent, CardHeader } from '@material-ui/core';
+import { Redirect } from 'react-router-dom';
+import { Typography, Paper, Card, CardContent } from '@material-ui/core';
 import { parseDate, shortenText } from '../utils';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -32,6 +33,9 @@ const useStyles = makeStyles({
 const UserHome = (props) => {
 	const classes = useStyles();
 	const user = props.user;
+	if (!user.email) {
+		return <Redirect to="/" />;
+	}
 	return (
 		<div id="user-home-container">
 			<Paper className={classes.header}>

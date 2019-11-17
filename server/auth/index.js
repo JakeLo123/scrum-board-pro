@@ -4,6 +4,7 @@ const { User } = require('../database/models');
 
 router.put('/login', async (req, res, next) => {
 	try {
+		console.log('got to /auth/login');
 		const user = await User.findOne({
 			where: { email: req.body.email }
 		});
@@ -12,13 +13,7 @@ router.put('/login', async (req, res, next) => {
 		} else if (!user.correctPassword) {
 			res.status(401).send('incorrect password...');
 		} else {
-			req.login(user, function(err) {
-				if (err) {
-					return next(err);
-				} else {
-					res.json(user);
-				}
-			});
+			res.json(user);
 		}
 	} catch (err) {
 		next(err);

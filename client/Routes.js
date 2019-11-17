@@ -1,23 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { UserHome, Login } from './components';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
-const Routes = (props) => {
-	console.log(props);
-	const user = props.user;
-	return user.email ? (
-		<Router>
+class Routes extends React.Component {
+	componentDidMount() {}
+	render() {
+		console.log('all props...', this.props);
+		return (
 			<Switch>
-				<Route path="/home">
-					<UserHome user={user} />
-				</Route>
+				<Route path="/home" component={UserHome} />
+				<Route component={Login} />
 			</Switch>
-		</Router>
-	) : (
-		<Login />
-	);
-};
+		);
+	}
+}
 
 const mapState = (state) => {
 	return {
