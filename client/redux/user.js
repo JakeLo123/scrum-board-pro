@@ -22,6 +22,16 @@ export const getUserThunk = (user) => {
 	};
 };
 
+export const getInitialUser = () => {
+	return (dispatch) => {
+		return axios
+			.get('/auth/me')
+			.then((res) => res.data)
+			.then((data) => dispatch(getUser(data)))
+			.catch(console.error.bind(console));
+	};
+};
+
 const initialState = {};
 
 export default function userReducer(state = initialState, action) {

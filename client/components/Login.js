@@ -17,6 +17,10 @@ class Login extends React.Component {
 	}
 }
 
+const mapState = (state) => {
+	return { user: state.user };
+};
+
 const mapDispatch = (dispatch, ownProps) => {
 	const history = ownProps.history;
 	return {
@@ -31,4 +35,4 @@ const mapDispatch = (dispatch, ownProps) => {
 	};
 };
 
-export default connect(null, mapDispatch)(Login);
+export default connect(mapState, mapDispatch)(Login);
