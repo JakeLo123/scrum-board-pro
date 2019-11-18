@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { UserHome, Login } from './components';
+import { UserHome, Login, Navbar } from './components';
 import { Switch, Route } from 'react-router-dom';
 import { getInitialUser } from './redux/user';
 
@@ -12,7 +12,14 @@ class Main extends React.Component {
 	render() {
 		const isLoggedIn = this.props.user.email;
 		if (isLoggedIn) console.log('logged in');
-		return isLoggedIn ? <Routes /> : <Login />;
+		return isLoggedIn ? (
+			<div>
+				<Navbar user={this.props.user} />
+				<Routes />
+			</div>
+		) : (
+			<Login />
+		);
 	}
 }
 

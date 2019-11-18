@@ -21,8 +21,7 @@ const mapState = (state) => {
 	return { user: state.user };
 };
 
-const mapDispatch = (dispatch, ownProps) => {
-	const history = ownProps.history;
+const mapDispatch = (dispatch) => {
 	return {
 		login: (event) => {
 			event.preventDefault();
@@ -30,7 +29,7 @@ const mapDispatch = (dispatch, ownProps) => {
 				email: event.target.email.value,
 				password: event.target.password.value
 			};
-			dispatch(getUserThunk(user)).then(() => history.push('/home'));
+			dispatch(getUserThunk(user));
 		}
 	};
 };

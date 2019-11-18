@@ -2,12 +2,20 @@ import axios from 'axios';
 
 // action constants
 const GET_USER = 'GET_USER';
+const LOGOUT_USER = 'LOGOUT_USER';
 
 // action creators
 const getUser = (user) => {
 	return {
 		type: GET_USER,
 		user
+	};
+};
+
+const logout = () => {
+	return {
+		type: LOGOUT_USER,
+		user: {}
 	};
 };
 
@@ -32,11 +40,19 @@ export const getInitialUser = () => {
 	};
 };
 
+export const logoutUser = () => {
+	return (dispatch) => {
+		return axios.delete('/auth/logout').then(() => dispatch(logout())).catch(console.error.bind(console));
+	};
+};
+
 const initialState = {};
 
 export default function userReducer(state = initialState, action) {
 	switch (action.type) {
 		case GET_USER:
+			return action.user;
+		case LOGOUT_USER:
 			return action.user;
 		default:
 			return state;
