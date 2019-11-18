@@ -17,8 +17,8 @@ function parseDate(dateObj) {
 }
 
 function shortenText(text) {
-	if (text.length > 300) {
-		return text.slice(0, 300) + '...';
+	if (text.length > 200) {
+		return text.slice(0, 200) + '...';
 	} else {
 		return text;
 	}

@@ -21,7 +21,7 @@ router.put('/login', (req, res, next) => {
 			next(err);
 		} else {
 			req.session.userId = user.id;
-			res.json(user);
+			res.json(user.sanitize());
 		}
 	});
 });
@@ -43,7 +43,7 @@ router.get('/me', async (req, res, next) => {
 				include: [ Project ]
 			});
 			if (!user) userNotFound(next);
-			else res.json(user);
+			else res.json(user.sanitize());
 		}
 	} catch (err) {
 		next(err);

@@ -17,11 +17,6 @@ const useStyles = makeStyles({
 		display: 'flex',
 		overflowX: 'auto',
 		position: 'relative'
-	},
-	footer: {
-		position: 'absolute',
-		bottom: 10,
-		margin: 15
 	}
 });
 

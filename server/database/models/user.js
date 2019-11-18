@@ -32,13 +32,9 @@ User.prototype.hasCorrectPassword = function(candidatePassword) {
 	else return false;
 };
 
-// User.prototype.correctPassword = function(candidatePassword) {
-// 	return this.Model.encryptPassword(candidatePassword, this.salt) === this.password;
-// };
-
-// User.prototype.sanitize = function() {
-// 	return _.omit(this.toJSON(), [ 'password', 'salt' ]);
-// };
+User.prototype.sanitize = function() {
+	return _.omit(this.toJSON(), [ 'password', 'salt' ]);
+};
 
 // // class methods
 // User.generateSalt = function() {
