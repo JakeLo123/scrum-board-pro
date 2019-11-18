@@ -1,4 +1,9 @@
 ### Seed story
-[ ] 5 users,
-[ ] 1 user without any projects
-[ ] 3 projects - with multiple users and tasks
+[x] 5 users,
+[x] 1 user without any projects
+[x] 3 projects - with multiple users and tasks
+
+## all projects
+[ ] can create a new project
+[ ] can add users to a new project
+[ ] can edit details of a project

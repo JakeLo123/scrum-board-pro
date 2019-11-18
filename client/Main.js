@@ -11,6 +11,7 @@ class Main extends React.Component {
 	}
 	render() {
 		const isLoggedIn = this.props.user.email;
+		if (isLoggedIn) console.log('logged in');
 		return isLoggedIn ? <Routes /> : <Login />;
 	}
 }
