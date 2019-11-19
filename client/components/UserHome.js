@@ -1,6 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
-import { Typography, Paper, LinearProgress } from '@material-ui/core';
+import { Typography, LinearProgress } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import ProjectCard from './ProjectCard';
@@ -10,7 +9,7 @@ const useStyles = makeStyles({
 		flexWrap: 'nowrap',
 		display: 'flex',
 		overflowX: 'auto',
-		marginTop: 60
+		marginTop: 70
 	}
 });
 
