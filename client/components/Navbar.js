@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AppBar, Button, Typography } from '@material-ui/core';
+import { AppBar, Button, Typography, Icon } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { logoutUser } from '../redux/user';
@@ -16,10 +16,14 @@ const useStyles = makeStyles({
 
 const Navbar = (props) => {
 	const classes = useStyles();
-	const { logout } = props;
+	const { logout, user } = props;
 	return (
 		<AppBar className={classes.container}>
-			<Typography>{props.user.email}</Typography>
+			<Icon>add_circle</Icon>
+			<div>
+				<Typography variant="h5">Scrum Board Pro</Typography>
+				<Typography variant="h6">Welcome {user.email}</Typography>
+			</div>
 			<Button onClick={logout}>logout</Button>
 		</AppBar>
 	);

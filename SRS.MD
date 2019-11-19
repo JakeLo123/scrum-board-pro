@@ -6,4 +6,9 @@
 ## all projects
 [ ] can create a new project
 [ ] can add users to a new project
-[ ] can edit details of a project
+[ ] can edit details of a project (modal view)
+
+## single project
+[ ] can view all tasks
+[ ] sorts tasks by priority
+[ ] can assign tasks to users
