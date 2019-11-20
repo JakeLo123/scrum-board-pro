@@ -26,7 +26,6 @@ const Navbar = (props) => {
 		<AppBar className={classes.container}>
 			<div className={`hover ${classes.item} ${classes.container}`}>
 				<AddIcon style={{ margin: '5px', display: 'inline-block' }} />
-				{/* <Icon style={{ margin: '5px', display: 'inline-block' }}>add_circle</Icon> */}
 				<Typography style={{ margin: '5px', display: 'inline-block' }} variant="body1">
 					new project
 				</Typography>
