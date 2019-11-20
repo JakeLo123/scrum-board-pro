@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { AppBar, Button, Typography } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import { makeStyles } from '@material-ui/core/styles';
@@ -24,12 +23,12 @@ const Navbar = (props) => {
 	const { logout, user } = props;
 	return (
 		<AppBar className={classes.container}>
-			<div className={`hover ${classes.item} ${classes.container}`}>
+			<Button className={`hover ${classes.item} ${classes.container}`}>
 				<AddIcon style={{ margin: '5px', display: 'inline-block' }} />
 				<Typography style={{ margin: '5px', display: 'inline-block' }} variant="body1">
 					new project
 				</Typography>
-			</div>
+			</Button>
 			<div className={classes.item}>
 				<Typography variant="h5">Scrum Board Pro</Typography>
 				<Typography variant="h6">Welcome {user.email}</Typography>
