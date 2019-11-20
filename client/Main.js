@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { UserHome, Login, Navbar } from './components';
+import { UserHome, Login, Navbar, SingleProject } from './components';
 import { Switch, Route } from 'react-router-dom';
 import { getInitialUser } from './redux/user';
 
@@ -26,8 +26,9 @@ class Main extends React.Component {
 const Routes = () => {
 	return (
 		<Switch>
-			<Route path="/" component={UserHome} />
-			<Route path="/home" component={UserHome} />
+			<Route exact path="/" component={UserHome} />
+			<Route exact path="/home" component={UserHome} />
+			<Route path="/projects/:projectId" component={SingleProject} />
 		</Switch>
 	);
 };

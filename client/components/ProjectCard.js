@@ -32,7 +32,7 @@ const ProjectCard = (props) => {
 	const { project } = props;
 	const classes = useStyles();
 	return (
-		<Card className={`hover ${classes.card}`}>
+		<Card className={`card-hover ${classes.card}`}>
 			<CardContent>
 				<Typography style={{ height: '50px', margin: '10px 0 10px 0' }} variant="h5">
 					{project.name}

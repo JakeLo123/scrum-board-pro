@@ -5,9 +5,11 @@ import thunkMiddleware from 'redux-thunk';
 // import { composeWithDevTools } from 'redux-devtools-extension';
 
 import userReducer from './redux/user';
+import selectedProjectReducer from './redux/selectedProject';
 
 const rootReducer = combineReducers({
-	user: userReducer
+	user: userReducer,
+	selectedProject: selectedProjectReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, loggerMiddleware));

@@ -7,9 +7,9 @@
 	align-items: center;
 }
 
-.hover:hover {
-	transform: scale(1.05, 1.05);
-	transition: 0.1s;
+.card-hover:hover {
+	background-color: rgb(211, 211, 211);
+	transition: 0.2s;
 }
 
 .icon-hover:hover {
