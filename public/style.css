@@ -8,6 +8,11 @@
 }
 
 .hover:hover {
-	background-color: rgb(96, 0, 160);
-	transition: 0.7s;
+	transform: scale(1.05, 1.05);
+	transition: 0.1s;
+}
+
+.icon-hover:hover {
+	transform: scale(1.4, 1.4);
+	transition: 0.1s;
 }

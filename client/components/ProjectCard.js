@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography } from '@material-ui/core';
+import GroupIcon from '@material-ui/icons/Group';
 import { parseDate, shortenText } from '../utils';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -10,6 +11,13 @@ const useStyles = makeStyles({
 		height: 400,
 		margin: 15,
 		position: 'relative'
+	},
+	tasks: {
+		display: 'flex',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		height: '50px',
+		margin: '10px 0'
 	},
 	footer: {
 		position: 'absolute',
@@ -24,7 +32,7 @@ const ProjectCard = (props) => {
 	const { project } = props;
 	const classes = useStyles();
 	return (
-		<Card className={classes.card}>
+		<Card className={`hover ${classes.card}`}>
 			<CardContent>
 				<Typography style={{ height: '50px', margin: '10px 0 10px 0' }} variant="h5">
 					{project.name}
@@ -37,9 +45,10 @@ const ProjectCard = (props) => {
 				>
 					{shortenText(project.description)}
 				</Typography>
-				<Typography style={{ height: '50px', margin: '10px 0' }} variant="h6">
-					{project.tasks ? project.tasks.length : 0} tasks
-				</Typography>
+				<div className={classes.tasks}>
+					<Typography variant="h6">{project.tasks ? project.tasks.length : 0} tasks</Typography>
+					<GroupIcon className="icon-hover" />
+				</div>
 			</CardContent>
 			<div className={classes.footer}>
 				<Typography variant="body2">

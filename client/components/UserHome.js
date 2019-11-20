@@ -9,6 +9,7 @@ const useStyles = makeStyles({
 		flexWrap: 'nowrap',
 		display: 'flex',
 		overflowX: 'auto',
+		overflowY: 'hidden',
 		marginTop: 85
 	}
 });
