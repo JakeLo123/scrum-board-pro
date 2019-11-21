@@ -26,9 +26,9 @@ class Main extends React.Component {
 const Routes = () => {
 	return (
 		<Switch>
-			<Route exact path="/" component={UserHome} />
 			<Route exact path="/home" component={UserHome} />
-			<Route path="/projects/:projectId" component={SingleProject} />
+			<Route exact path="/projects/:projectId" component={SingleProject} />
+			<Route exact path="/" component={UserHome} />
 		</Switch>
 	);
 };

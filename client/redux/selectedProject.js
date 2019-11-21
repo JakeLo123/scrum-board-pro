@@ -12,11 +12,16 @@ const getSelectedProject = (project) => {
 };
 
 export const getSelectedProjectThunk = (projectId) => {
-	return async (dispatch) => {
-		const response = await axios.get(`/api/projects/${projectId}`);
-		const project = response.data;
-		console.log('got to project thunk...', project);
-		dispatch(getSelectedProject(project));
+	return (dispatch) => {
+		console.log('project ID given to thunk...', projectId);
+		return axios
+			.get(`/api/projects/${projectId}`)
+			.then((res) => res.data)
+			.then((project) => {
+				console.log('project', project);
+				dispatch(getSelectedProject(project));
+			})
+			.catch(console.error.bind(console));
 	};
 };
 
