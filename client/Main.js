@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { UserHome, Login, Navbar, SingleProject } from './components';
+import { UserHome, Login, SingleProject } from './components';
 import { Switch, Route } from 'react-router-dom';
 import { getInitialUser } from './redux/user';
 

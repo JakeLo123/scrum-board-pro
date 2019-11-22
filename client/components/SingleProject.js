@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { getSelectedProjectThunk } from '../redux/selectedProject';
+import Navbar from './Navbar';
 
 class SingleProject extends React.Component {
 	componentDidMount() {
@@ -10,8 +11,13 @@ class SingleProject extends React.Component {
 		fetchProject(projectId);
 	}
 	render() {
+		const project = this.props.project;
 		const { name, tasks } = this.props.project;
-		return <div>{/* here is where we map out tasks */}</div>;
+		return (
+			<div>
+				<Navbar selectedProject={project} />
+			</div>
+		);
 	}
 }
 
