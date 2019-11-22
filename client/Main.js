@@ -10,11 +10,12 @@ class Main extends React.Component {
 		fetchUser();
 	}
 	render() {
-		const isLoggedIn = this.props.user.email;
-		if (isLoggedIn) console.log('logged in');
+		const { user, history } = this.props;
+		const isLoggedIn = user.email;
+		if (isLoggedIn) console.log('user logged in');
 		return isLoggedIn ? (
 			<div>
-				<Navbar user={this.props.user} />
+				<Navbar history={history} user={this.props.user} />
 				<Routes />
 			</div>
 		) : (

@@ -5,14 +5,12 @@ import { getSelectedProjectThunk } from '../redux/selectedProject';
 
 class SingleProject extends React.Component {
 	componentDidMount() {
-		console.log('component did mount', this.props);
 		const projectId = this.props.match.params.projectId;
 		const fetchProject = this.props.fetchProject;
 		fetchProject(projectId);
 	}
 	render() {
 		const { name, tasks } = this.props.project;
-		console.log('render', this.props);
 		return <div>{/* here is where we map out tasks */}</div>;
 	}
 }

@@ -11,7 +11,8 @@ const useStyles = makeStyles({
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		alignItems: 'center;'
+		alignItems: 'center',
+		position: 'inline-block'
 	},
 	item: {
 		flex: '0 1 auto',
