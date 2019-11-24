@@ -8,10 +8,10 @@ import { createBrowserHistory } from 'history';
 const history = createBrowserHistory();
 
 ReactDOM.render(
-	<Provider store={store}>
-		<Router history={history}>
-			<Main />
-		</Router>
-	</Provider>,
-	document.getElementById('app')
+  <Provider store={store}>
+    <Router history={history}>
+      <Main />
+    </Router>
+  </Provider>,
+  document.getElementById('app')
 );

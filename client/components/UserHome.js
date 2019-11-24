@@ -6,37 +6,37 @@ import ProjectCard from './ProjectCard';
 import Navbar from './Navbar';
 
 const useStyles = makeStyles({
-	cardContainer: {
-		flexWrap: 'nowrap',
-		display: 'flex',
-		overflowX: 'auto',
-		overflowY: 'hidden',
-		marginTop: 85
-	}
+  cardContainer: {
+    flexWrap: 'nowrap',
+    display: 'flex',
+    overflowX: 'auto',
+    overflowY: 'hidden',
+    marginTop: 85,
+  },
 });
 
-const UserHome = (props) => {
-	const classes = useStyles();
-	const { user } = props;
-	return user.email ? (
-		<div className={classes.cardContainer}>
-			<Navbar user={user} />
-			{user.projects.map((project) => {
-				return <ProjectCard key={project.id} project={project} />;
-			})}
-		</div>
-	) : (
-		<div>
-			<Typography>loading</Typography>
-			<LinearProgress />
-		</div>
-	);
+const UserHome = props => {
+  const { cardContainer } = useStyles();
+  const { user } = props;
+  return user.email ? (
+    <div className={cardContainer}>
+      <Navbar user={user} />
+      {user.projects.map(project => {
+        return <ProjectCard key={project.id} project={project} />;
+      })}
+    </div>
+  ) : (
+    <div>
+      <Typography>loading</Typography>
+      <LinearProgress />
+    </div>
+  );
 };
 
-const mapState = (state) => {
-	return {
-		user: state.user
-	};
+const mapState = state => {
+  return {
+    user: state.user,
+  };
 };
 
 export default connect(mapState)(UserHome);
