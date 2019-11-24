@@ -10,7 +10,8 @@ const useStyles = makeStyles({
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		alignItems: 'center;'
+		alignItems: 'center',
+		position: 'inline-block'
 	},
 	item: {
 		flex: '0 1 auto',
@@ -20,24 +21,43 @@ const useStyles = makeStyles({
 
 const Navbar = (props) => {
 	const classes = useStyles();
-	const { logout, user } = props;
+	const { logout, user, selectedProject } = props;
 	return (
 		<AppBar className={classes.container}>
-			<Button className={`hover ${classes.item} ${classes.container}`}>
+			<Button className={`${classes.item} ${classes.container}`}>
 				<AddIcon style={{ margin: '5px', display: 'inline-block' }} />
 				<Typography style={{ margin: '5px', display: 'inline-block' }} variant="body1">
 					new project
 				</Typography>
 			</Button>
-			<div className={classes.item}>
-				<Typography variant="h5">Scrum Board Pro</Typography>
-				<Typography variant="h6">Welcome {user.email}</Typography>
-			</div>
-			<Button className={`hover ${classes.item}`} onClick={logout}>
+			{selectedProject ? (
+				<div className={classes.item}>
+					<Typography variant="h5">{selectedProject.name}</Typography>
+				</div>
+			) : (
+				<div className={classes.item}>
+					<Typography variant="h5">Scrum Board Pro</Typography>
+					<Typography variant="h6">Welcome {user.email}</Typography>
+				</div>
+			)}
+			<Button className={classes.item} onClick={logout}>
 				logout
 			</Button>
 		</AppBar>
 	);
+};
+
+const UserHomeOptions = (props) => {
+	return (
+		<div>
+			<Typography variant="h5">Scrum Board Pro</Typography>
+			<Typography variant="h6">Welcome {props.user.email}</Typography>
+		</div>
+	);
+};
+
+const SelectedProjectOptions = (props) => {
+	return <Typography variant="h5" />;
 };
 
 const mapDispatch = (dispatch) => {

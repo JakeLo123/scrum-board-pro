@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { UserHome, Login, Navbar } from './components';
+import { UserHome, Login, SingleProject } from './components';
 import { Switch, Route } from 'react-router-dom';
 import { getInitialUser } from './redux/user';
 
@@ -10,24 +10,19 @@ class Main extends React.Component {
 		fetchUser();
 	}
 	render() {
-		const isLoggedIn = this.props.user.email;
-		if (isLoggedIn) console.log('logged in');
-		return isLoggedIn ? (
-			<div>
-				<Navbar user={this.props.user} />
-				<Routes />
-			</div>
-		) : (
-			<Login />
-		);
+		const { user } = this.props;
+		const isLoggedIn = user.email;
+		if (isLoggedIn) console.log('user logged in');
+		return isLoggedIn ? <Routes /> : <Login />;
 	}
 }
 
 const Routes = () => {
 	return (
 		<Switch>
-			<Route path="/" component={UserHome} />
-			<Route path="/home" component={UserHome} />
+			<Route exact path="/home" component={UserHome} />
+			<Route exact path="/projects/:projectId" component={SingleProject} />
+			<Route exact path="/" component={UserHome} />
 		</Switch>
 	);
 };
