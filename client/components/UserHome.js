@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
+import { Typography } from '@material-ui/core';
 import ProjectCard from './ProjectCard';
 import Navbar from './Navbar';
 import Loading from './Loading';
@@ -21,9 +22,13 @@ const UserHome = props => {
   return user.email ? (
     <div className={cardContainer}>
       <Navbar user={user} />
-      {user.projects.map(project => {
-        return <ProjectCard key={project.id} project={project} />;
-      })}
+      {!user.projects.length ? (
+        <Typography>you have no projects, go make one</Typography>
+      ) : (
+        user.projects.map(project => {
+          return <ProjectCard key={project.id} project={project} />;
+        })
+      )}
     </div>
   ) : (
     <Loading />

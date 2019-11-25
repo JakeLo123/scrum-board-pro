@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+const Op = require('sequelize').Op;
 const { User, Project, Task } = require('../database/models');
 
 function userNotFound(message) {
@@ -18,7 +18,13 @@ router.get('/me', async (req, res, next) => {
         include: [
           {
             model: Project,
-            include: [Task],
+            include: [
+              { model: Task },
+              {
+                model: User,
+                attributes: ['email'],
+              },
+            ],
           },
         ],
       });
@@ -36,7 +42,12 @@ router.put('/login', async (req, res, next) => {
       where: {
         email: req.body.email,
       },
-      include: [Project],
+      include: [
+        {
+          model: Project,
+          include: [User.email],
+        },
+      ],
     });
     if (!user) {
       userNotFound('user not found...');

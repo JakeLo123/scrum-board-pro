@@ -10,6 +10,7 @@ class Main extends React.Component {
     fetchUser();
   }
   render() {
+    console.log('props from main component...', this.props);
     const { user } = this.props;
     const isLoggedIn = user.email;
     if (isLoggedIn) console.log('user logged in');
@@ -17,8 +18,7 @@ class Main extends React.Component {
   }
 }
 
-const Routes = props => {
-  console.log('props from Routes component...', props);
+const Routes = () => {
   return (
     <Switch>
       <Route exact path="/" component={UserHome} />
