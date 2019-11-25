@@ -4,34 +4,49 @@ import { connect } from 'react-redux';
 import { getUserThunk } from '../redux/user';
 
 class Login extends React.Component {
-	render() {
-		return (
-			<form className="login-signup-form" onSubmit={this.props.login}>
-				<TextField label="Email" name="email" type="text" margin="normal" variant="filled" required />
-				<TextField label="Password" name="password" type="password" margin="normal" variant="filled" required />
-				<Button type="submit" variant="contained">
-					login
-				</Button>
-			</form>
-		);
-	}
+  render() {
+    console.log('login component rendered');
+    return (
+      <form className="login-signup-form" onSubmit={this.props.login}>
+        <TextField
+          label="Email"
+          name="email"
+          type="text"
+          margin="normal"
+          variant="filled"
+          required
+        />
+        <TextField
+          label="Password"
+          name="password"
+          type="password"
+          margin="normal"
+          variant="filled"
+          required
+        />
+        <Button type="submit" variant="contained">
+          login
+        </Button>
+      </form>
+    );
+  }
 }
 
-const mapState = (state) => {
-	return { user: state.user };
+const mapState = state => {
+  return { user: state.user };
 };
 
-const mapDispatch = (dispatch) => {
-	return {
-		login: (event) => {
-			event.preventDefault();
-			const user = {
-				email: event.target.email.value,
-				password: event.target.password.value
-			};
-			dispatch(getUserThunk(user));
-		}
-	};
+const mapDispatch = dispatch => {
+  return {
+    login: event => {
+      event.preventDefault();
+      const user = {
+        email: event.target.email.value,
+        password: event.target.password.value,
+      };
+      dispatch(getUserThunk(user));
+    },
+  };
 };
 
 export default connect(mapState, mapDispatch)(Login);
