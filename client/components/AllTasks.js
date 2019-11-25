@@ -24,31 +24,26 @@ const AllTasks = ({ tasks }) => {
       <div className={container}>
         <div className={header}>
           <Typography variant="h6">low</Typography>
-          {tasks
-            .filter(task => task.priority === 'low')
-            .map(task => (
-              <TaskCard key={task.id} task={task} />
-            ))}
+          <FilterAndMapTaskCards tasks={tasks} priorityLevel="low" />
         </div>
         <div className={header}>
           <Typography variant="h6">medium</Typography>
-          {tasks
-            .filter(task => task.priority === 'medium')
-            .map(task => (
-              <TaskCard key={task.id} task={task} />
-            ))}
+          <FilterAndMapTaskCards tasks={tasks} priorityLevel="medium" />
         </div>
         <div className={header}>
           <Typography variant="h6">high</Typography>
-          {tasks
-            .filter(task => task.priority === 'high')
-            .map(task => (
-              <TaskCard key={task.id} task={task} />
-            ))}
+          <FilterAndMapTaskCards tasks={tasks} priorityLevel="high" />
         </div>
       </div>
     )
   );
+};
+
+const FilterAndMapTaskCards = props => {
+  const { tasks, priorityLevel } = props;
+  return tasks
+    .filter(task => task.priority === priorityLevel)
+    .map(task => <TaskCard key={task.id} task={task} />);
 };
 
 export default AllTasks;

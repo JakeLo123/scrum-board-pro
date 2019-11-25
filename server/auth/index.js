@@ -45,7 +45,13 @@ router.put('/login', async (req, res, next) => {
       include: [
         {
           model: Project,
-          include: [User.email],
+          include: [
+            { model: Task },
+            {
+              model: User,
+              attributes: ['email'],
+            },
+          ],
         },
       ],
     });

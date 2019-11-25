@@ -5,6 +5,7 @@ import { Typography } from '@material-ui/core';
 import ProjectCard from './ProjectCard';
 import Navbar from './Navbar';
 import Loading from './Loading';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   cardContainer: {
@@ -19,6 +20,7 @@ const useStyles = makeStyles({
 const UserHome = props => {
   const { cardContainer } = useStyles();
   const { user } = props;
+  console.log('props from UserHome', props);
   return user.email ? (
     <div className={cardContainer}>
       <Navbar user={user} />
@@ -26,7 +28,11 @@ const UserHome = props => {
         <Typography>you have no projects, go make one</Typography>
       ) : (
         user.projects.map(project => {
-          return <ProjectCard key={project.id} project={project} />;
+          return (
+            <Link key={project.id} to={`/projects/${project.id}`}>
+              <ProjectCard project={project} />
+            </Link>
+          );
         })
       )}
     </div>
