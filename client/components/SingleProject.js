@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getSelectedProjectThunk } from '../redux/selectedProject';
 import Navbar from './Navbar';
 import AllTasks from './AllTasks';
+import Loading from './Loading';
 
 class SingleProject extends React.Component {
   componentDidMount() {
@@ -13,9 +14,11 @@ class SingleProject extends React.Component {
   }
   render() {
     const project = this.props.project;
-    const { name, tasks } = this.props.project;
-    // Tasks is undefined
-    return (
+    const { tasks } = project;
+    const isLoading = !project.name;
+    return isLoading ? (
+      <Loading />
+    ) : (
       <div>
         <Navbar selectedProject={project} />
         <AllTasks tasks={tasks} />

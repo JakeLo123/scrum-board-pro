@@ -1,9 +1,9 @@
 import React from 'react';
-import { Typography, LinearProgress } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import ProjectCard from './ProjectCard';
 import Navbar from './Navbar';
+import Loading from './Loading';
 
 const useStyles = makeStyles({
   cardContainer: {
@@ -26,10 +26,7 @@ const UserHome = props => {
       })}
     </div>
   ) : (
-    <div>
-      <Typography>loading</Typography>
-      <LinearProgress />
-    </div>
+    <Loading />
   );
 };
 

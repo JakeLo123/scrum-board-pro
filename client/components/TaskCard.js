@@ -5,7 +5,7 @@ const TaskCard = props => {
   const { task } = props;
   return (
     <Paper>
-      <Typography variant="body1">{task.name}</Typography>;
+      <Typography variant="body1">{task.name}</Typography>
     </Paper>
   );
 };
