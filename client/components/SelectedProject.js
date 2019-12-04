@@ -19,7 +19,7 @@ class SelectedProject extends React.Component {
     return isLoading ? (
       <Loading />
     ) : (
-      <div style={{}}>
+      <div>
         <Navbar selectedProject={project} />
         <AllTasks tasks={tasks} />
       </div>

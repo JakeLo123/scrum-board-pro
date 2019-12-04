@@ -31,10 +31,30 @@ const TaskCard = props => {
           >
             {shortenText(description, 40)}
           </Typography>
-          <Typography variant="body2">assigned to: {assignee}</Typography>
+          <Assignee assignee={assignee} />
         </CardContent>
       </CardActionArea>
     </Card>
+  );
+};
+
+const Assignee = props => {
+  const assignee = props.assignee;
+  return (
+    <div>
+      <Typography
+        style={{ fontSize: 10, display: 'inline-block', marginRight: 4 }}
+        variant="body2"
+      >
+        assigned to:
+      </Typography>
+      <Typography
+        style={{ fontSize: 13, display: 'inline-block' }}
+        varient="body2"
+      >
+        {assignee}
+      </Typography>
+    </div>
   );
 };
 
