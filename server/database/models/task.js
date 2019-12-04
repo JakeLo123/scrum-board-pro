@@ -14,7 +14,8 @@ const Task = db.define('task', {
     defaultValue: 'low',
   },
   status: {
-    type: Sequelize.ENUM('in progress', 'blocked', 'complete'),
+    type: Sequelize.ENUM('incomplete', 'in progress', 'blocked', 'complete'),
+    defaultValue: 'incomplete',
   },
 });
 
