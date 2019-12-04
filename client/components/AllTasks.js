@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
+import { Typography, Paper } from '@material-ui/core';
 import TaskCard from './TaskCard';
 
 const useStyles = makeStyles({
@@ -11,9 +11,8 @@ const useStyles = makeStyles({
   header: {
     flex: 1,
     textAlign: 'center',
-    border: '1px solid black',
-    boxShadow: '1px 1px 1px',
     margin: 3,
+    height: '85vh',
   },
 });
 
@@ -22,18 +21,18 @@ const AllTasks = ({ tasks }) => {
   return (
     tasks.length && (
       <div className={container}>
-        <div className={header}>
+        <Paper className={header}>
           <Typography variant="h6">low</Typography>
           <FilterAndMapTaskCards tasks={tasks} priorityLevel="low" />
-        </div>
-        <div className={header}>
+        </Paper>
+        <Paper className={header}>
           <Typography variant="h6">medium</Typography>
           <FilterAndMapTaskCards tasks={tasks} priorityLevel="medium" />
-        </div>
-        <div className={header}>
+        </Paper>
+        <Paper className={header}>
           <Typography variant="h6">high</Typography>
           <FilterAndMapTaskCards tasks={tasks} priorityLevel="high" />
-        </div>
+        </Paper>
       </div>
     )
   );

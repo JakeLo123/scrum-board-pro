@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 import AllTasks from './AllTasks';
 import Loading from './Loading';
 
-class SingleProject extends React.Component {
+class SelectedProject extends React.Component {
   componentDidMount() {
     const projectId = this.props.match.params.projectId;
     const fetchProject = this.props.fetchProject;
@@ -19,7 +19,7 @@ class SingleProject extends React.Component {
     return isLoading ? (
       <Loading />
     ) : (
-      <div>
+      <div style={{}}>
         <Navbar selectedProject={project} />
         <AllTasks tasks={tasks} />
       </div>
@@ -39,4 +39,4 @@ const mapDispatch = dispatch => {
   };
 };
 
-export default connect(mapState, mapDispatch)(SingleProject);
+export default connect(mapState, mapDispatch)(SelectedProject);

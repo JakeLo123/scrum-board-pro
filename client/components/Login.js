@@ -5,7 +5,6 @@ import { getUserThunk } from '../redux/user';
 
 class Login extends React.Component {
   render() {
-    console.log('login component rendered');
     return (
       <form className="login-signup-form" onSubmit={this.props.login}>
         <TextField
