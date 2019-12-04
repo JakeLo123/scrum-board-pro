@@ -46,7 +46,7 @@ const ProjectCard = props => {
           color="textSecondary"
           component="p"
         >
-          {shortenText(project.description)}
+          {shortenText(project.description, 200)}
         </Typography>
         <div className={classes.tasks}>
           <Typography variant="h6">

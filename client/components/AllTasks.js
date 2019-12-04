@@ -8,29 +8,41 @@ const useStyles = makeStyles({
     marginTop: 85,
     display: 'flex',
   },
-  header: {
+  column: {
     flex: 1,
-    textAlign: 'center',
     margin: 3,
     height: '85vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    overFlowY: 'scroll',
+  },
+  header: {
+    margin: 5,
   },
 });
 
 const AllTasks = ({ tasks }) => {
-  const { header, container } = useStyles();
+  const { column, container, header } = useStyles();
   return (
     tasks.length && (
       <div className={container}>
-        <Paper className={header}>
-          <Typography variant="h6">low</Typography>
+        <Paper className={column}>
+          <Typography className={header} variant="h5">
+            low
+          </Typography>
           <FilterAndMapTaskCards tasks={tasks} priorityLevel="low" />
         </Paper>
-        <Paper className={header}>
-          <Typography variant="h6">medium</Typography>
+        <Paper className={column}>
+          <Typography className={header} variant="h5">
+            medium
+          </Typography>
           <FilterAndMapTaskCards tasks={tasks} priorityLevel="medium" />
         </Paper>
-        <Paper className={header}>
-          <Typography variant="h6">high</Typography>
+        <Paper className={column}>
+          <Typography className={header} variant="h5">
+            high
+          </Typography>
           <FilterAndMapTaskCards tasks={tasks} priorityLevel="high" />
         </Paper>
       </div>
