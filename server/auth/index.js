@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const Op = require('sequelize').Op;
 const { User, Project, Task } = require('../database/models');
 
 function userNotFound(message) {

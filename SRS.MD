@@ -23,5 +23,7 @@
 [ ] can edit details of a task (modal)
 
 ##### reflections/what can I be doing better
--   More planning before jumping in. For example, draft/design the layout of a component before coding it. You would do better and write cleaner code
-with some more forethought.
+-   More planning before jumping in. For example, draft/design the layout of a component before coding it. You would do better and write cleaner code with some more forethought.
+
+### Minimum viable product... what does it look like?
+- User can sign up or log in, view, create, and delete projects and tasks.

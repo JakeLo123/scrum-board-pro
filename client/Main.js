@@ -12,21 +12,20 @@ class Main extends React.Component {
   render() {
     const { user } = this.props;
     const isLoggedIn = user.email;
-    if (isLoggedIn)
-      console.log(isLoggedIn ? 'user is logged in' : 'user is not logged in');
+    console.log(isLoggedIn ? 'user is logged in' : 'user is not logged in');
     return isLoggedIn ? <Routes /> : <Login />;
   }
 }
 
-const Routes = () => {
+function Routes() {
   return (
     <Switch>
-      {/* <Route path="/projects" component={UserHome} /> */}
+      <Route exact path="/" component={UserHome} />
+      <Route exact path="/projects" component={UserHome} />
       <Route exact path="/projects/:projectId" component={SelectedProject} />
-      <Route path="/" component={UserHome} />
     </Switch>
   );
-};
+}
 
 const mapState = state => {
   return {

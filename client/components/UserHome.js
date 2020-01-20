@@ -20,7 +20,6 @@ const useStyles = makeStyles({
 const UserHome = props => {
   const { cardContainer } = useStyles();
   const { user } = props;
-  console.log('props from UserHome', props);
   return user.email ? (
     <div className={cardContainer}>
       <Navbar user={user} />
