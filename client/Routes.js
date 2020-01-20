@@ -19,7 +19,7 @@ class Routes extends React.Component {
         {isLoggedIn ? (
           <Switch>
             <Route exact path="/" component={UserHome} />
-            <Route path="/projects" component={UserHome} />
+            <Route exact path="/projects" component={UserHome} />
             <Route
               exact
               path="/projects/:projectId"

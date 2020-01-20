@@ -3,6 +3,7 @@ const { Project, Task } = require('../database/models');
 
 router.get('/:id', async (req, res, next) => {
   try {
+    console.log('got it to GET /projects/:id');
     const project = await Project.findOne({
       where: {
         id: req.params.id,

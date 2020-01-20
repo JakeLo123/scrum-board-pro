@@ -8,6 +8,7 @@ import Loading from './Loading';
 
 class SelectedProject extends React.Component {
   componentDidMount() {
+    console.log(this.props);
     const projectId = this.props.match.params.projectId;
     const fetchProject = this.props.fetchProject;
     fetchProject(projectId);

@@ -42,7 +42,8 @@ function createApp() {
   app.use('/api', require('./api'));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
+    console.log("got where it shouldn't be");
+    res.sendFile(path.join(__dirname, '..', 'public/index.html'));
   });
 
   app.use((err, req, res, next) => {

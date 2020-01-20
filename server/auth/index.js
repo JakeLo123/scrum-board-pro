@@ -14,14 +14,27 @@ router.get('/me', async (req, res, next) => {
     } else {
       const user = await User.findOne({
         where: { id: req.session.userId },
+        attributes: ['id', 'email'],
         include: [
           {
             model: Project,
+            as: 'projects',
+            attributes: ['id', 'name', 'description', 'status', 'deadline'],
+            through: {
+              attributes: [],
+            },
             include: [
-              { model: Task },
               {
-                model: User,
-                attributes: ['email'],
+                model: Task,
+                as: 'tasks',
+                attributes: [
+                  'id',
+                  'name',
+                  'description',
+                  'priority',
+                  'status',
+                  'userId',
+                ],
               },
             ],
           },
@@ -38,17 +51,27 @@ router.get('/me', async (req, res, next) => {
 router.put('/login', async (req, res, next) => {
   try {
     const user = await User.findOne({
-      where: {
-        email: req.body.email,
-      },
+      where: { email: req.body.email },
       include: [
         {
           model: Project,
+          as: 'projects',
+          attributes: ['id', 'name', 'description', 'status', 'deadline'],
+          through: {
+            attributes: [],
+          },
           include: [
-            { model: Task },
             {
-              model: User,
-              attributes: ['email'],
+              model: Task,
+              as: 'tasks',
+              attributes: [
+                'id',
+                'name',
+                'description',
+                'priority',
+                'status',
+                'userId',
+              ],
             },
           ],
         },
