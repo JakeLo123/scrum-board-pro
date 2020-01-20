@@ -3,33 +3,31 @@ import { TextField, Button } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { getUserThunk } from '../redux/user';
 
-class Login extends React.Component {
-  render() {
-    return (
-      <form className="login-signup-form" onSubmit={this.props.login}>
-        <TextField
-          label="Email"
-          name="email"
-          type="text"
-          margin="normal"
-          variant="filled"
-          required
-        />
-        <TextField
-          label="Password"
-          name="password"
-          type="password"
-          margin="normal"
-          variant="filled"
-          required
-        />
-        <Button type="submit" variant="contained">
-          login
-        </Button>
-      </form>
-    );
-  }
-}
+const Login = props => {
+  return (
+    <form className="login-signup-form" onSubmit={props.login}>
+      <TextField
+        label="Email"
+        name="email"
+        type="text"
+        margin="normal"
+        variant="filled"
+        required
+      />
+      <TextField
+        label="Password"
+        name="password"
+        type="password"
+        margin="normal"
+        variant="filled"
+        required
+      />
+      <Button type="submit" variant="contained">
+        login
+      </Button>
+    </form>
+  );
+};
 
 const mapState = state => {
   return { user: state.user };

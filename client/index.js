@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-import Main from './Main';
-import { createBrowserHistory } from 'history';
-const history = createBrowserHistory({ basename: '' });
+import Routes from './Routes';
+// import { Router } from 'react-router-dom';
+// import { createBrowserHistory } from 'history';
+// const history = createBrowserHistory();
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
-      <Main />
-    </Router>
+    <Routes />
   </Provider>,
   document.getElementById('app')
 );
